@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau1</title>
+</head>
+<body>
+<script>
+    function integerArr() {
+        let n;
+        let arr = [];
+        let num;
+        do {
+            n = parseInt(prompt("Nhap vao n so nguyen"));
+        } while (isNaN(n) || n <0 || n >100)
+        for (let i = 0; i < n; i++) {
+            num = parseInt(prompt("Nhap gia tri so nguyen"));
+            arr.push(num);
+        }
+        return arr;
+    }
+    let arr1 = integerArr();
+    let sumEven = 0;
+    let sumOdd = 0;
+    for (let i = 0; i < arr1.length; i++) {
+        if(arr1[i] %2 === 0) {
+            sumEven += arr1[i];
+        }
+        else {
+            sumOdd += arr1[i];
+        }
+    }
+    document.writeln("Mang: " +arr1 + "<br>");
+    document.writeln("Tong cac so chan - tong cac so le: " + (sumEven - sumOdd));
+</script>
+</body>
+</html>

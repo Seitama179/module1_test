@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 3</title>
+</head>
+<body>
+<script>
+    let arr = integerArr();
+    let primeArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if(checkPrime(arr[i])) {
+            primeArr.push(arr[i]);
+        }
+    }
+    primeArr.sort(function(a, b) {
+        return a - b;
+    });
+    document.writeln("Cac so la so nguyen to: " + primeArr);
+    function integerArr() {
+        let n;
+        let arr = [];
+        let num;
+        do {
+            n = parseInt(prompt("Nhap vao n so nguyen"));
+        } while (isNaN(n) || n <0 || n >100)
+        for (let i = 0; i < n; i++) {
+            num = parseInt(prompt("Nhap gia tri so nguyen"));
+            arr.push(num);
+        }
+        return arr;
+    }
+    function checkPrime(n){
+        if (n<2) return false;
+        if (n<4) return true;
+        for (let i = 2; i < Math.sqrt(n) ; i++) {
+            if(n%i ===0 ) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

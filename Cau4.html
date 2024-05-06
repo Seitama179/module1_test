@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 4</title>
+</head>
+<body>
+<script>
+    class Phone {
+        constructor(phoneCode, name, manufacturer, price) {
+            this._code = phoneCode;
+            this._name = name;
+            this._manufacturer = manufacturer;
+            this._price = price;
+        }
+        setCode(code) {
+            this._code = code;
+        }
+        setName(name) {
+            this._name = name;
+        }
+        setManu(manufacturer) {
+            this._manufacturer = manufacturer;
+        }
+        setPrice(price) {
+            this._price = price;
+        }
+        getCode() {
+            return this._code;
+        }
+        getName() {
+            return this._name;
+        }
+        getManu() {
+            return this._manufacturer;
+        }
+        getPrice() {
+            return this._price;
+        }
+        getInfo() {
+            return `ID: ${this._code}, Name: ${this._name}, Manufacturer: ${this._manufacturer}, Price: ${this._price}\`;`
+        }
+    }
+    let iphoneX = new Phone("AP001", "iPhone X", "Apple", 10000000);
+    let realme10 = new Phone("RM010", "realme 10", "realme", 8000000);
+    let GalaxyS21 = new Phone("S21","Samsung Galaxy S21", "Samsung", 9000000);
+
+</script>
+</body>
+</html>
