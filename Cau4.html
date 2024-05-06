@@ -5,16 +5,36 @@
     <title>Cau 4</title>
 </head>
 <body>
+<form id="addPhone">
+    <input type="text" id="ID" placeholder="ID" required>
+    <input type="text" id="nameInput" placeholder="Name" required>
+    <input type="text" id="manufacturerInput" placeholder="Manufacturer" required>
+    <input type="number" id="priceInput" placeholder="Price" required>
+    <button type="submit">Add Phone</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody id="phoneTable">
+
+    </tbody>
+</table>
 <script>
     class Phone {
-        constructor(phoneCode, name, manufacturer, price) {
-            this._code = phoneCode;
+        constructor(ID, name, manufacturer, price) {
+            this._ID = ID;
             this._name = name;
             this._manufacturer = manufacturer;
             this._price = price;
         }
-        setCode(code) {
-            this._code = code;
+        setID(ID) {
+            this._ID = ID;
         }
         setName(name) {
             this._name = name;
@@ -25,8 +45,8 @@
         setPrice(price) {
             this._price = price;
         }
-        getCode() {
-            return this._code;
+        getID() {
+            return this._ID;
         }
         getName() {
             return this._name;
@@ -38,13 +58,36 @@
             return this._price;
         }
         getInfo() {
-            return `ID: ${this._code}, Name: ${this._name}, Manufacturer: ${this._manufacturer}, Price: ${this._price}\`;`
+            return `ID: ${this._ID}, Name: ${this._name}, Manufacturer: ${this._manufacturer}, Price: ${this._price}\`;`
+        }
+
+    }
+    class PhoneManager {
+        constructor() {
+            this._phone = [];
+        }
+
+        addPhone(phone) {
+            this._phone.push(phone);
+        }
+
+        displayPhones() {
+            let tableBody = document.getElementById("phoneTable");
+            tableBody.innerHTML = "";
+            this.phones.forEach(phone => {
+                let row = tableBody.insertRow();
+                row.insertCell(0).innerText = phone._ID;
+                row.insertCell(1).innerText = phone._name;
+                row.insertCell(2).innerText = phone._manufacturer;
+                row.insertCell(3).innerText = phone._price;
+            });
         }
     }
     let iphoneX = new Phone("AP001", "iPhone X", "Apple", 10000000);
     let realme10 = new Phone("RM010", "realme 10", "realme", 8000000);
     let GalaxyS21 = new Phone("S21","Samsung Galaxy S21", "Samsung", 9000000);
-
+    let manager = new PhoneManager();
+    manager.displayPhones();
 </script>
 </body>
 </html>
